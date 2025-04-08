@@ -1,3 +1,5 @@
+# ssh pi@IPaddress ---> to connect the pi and laptop using secure shell
+
 import pyaudio
 import numpy as np
 import os
@@ -46,7 +48,7 @@ try:
             print("🎵 Beat detected!")  # Print when a beat is detected
 
             # Trigger to run a script on the Raspberry Pi via SSH
-            os.system("ssh pi@192.168.1.94 \"bash -lc 'python3 /home/pi/test.py'\"")
+            os.system("ssh pi@192.168.137.92 \"bash -lc 'python3 /home/pi/test.py'\"")
 
         else:
             print("No beat detected.")  # Print if no beat is detected (energy is below the threshold)
