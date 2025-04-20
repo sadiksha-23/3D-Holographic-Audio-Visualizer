@@ -3,32 +3,38 @@ from Cube_Visual import *
 from Sphere_Visual import *
 from Dots_Visual import *
 
-# === Setup ===
-WIDTH, HEIGHT = 800, 800
+# Screen and frame rate setup
+WIDTH, HEIGHT = 1000, 800
 FPS = 60
 
+# Initialize Pygame
 pygame.init()
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
+screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)  # Launch in full screen
 pygame.display.set_caption("3D Holographic Audio Visualizer")
 clock = pygame.time.Clock()
 
-# === Audio ===
+# Start audio input
 audio = AudioInput()
 audio.start()
 
-# === State ===
-angle = 0
-visual_mode = 1  # Start with cube
+# Initial state
+angle = 0                 # Used for rotating visuals
+visual_mode = 1           # Default to cube visual
 
-# === Main Loop ===
+# Main loop
 running = True
 while running:
-    screen.fill((0, 0, 0))
-    energy = audio.get_energy()
+    screen.fill((0, 0, 0))                # Clear screen with black background
+    energy = audio.get_energy()          # Get audio energy level
 
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+        # Close program when ESC key is pressed
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
             running = False
+        # Handle window close button
+        elif event.type == pygame.QUIT:
+            running = False
+        # Handle visual mode switching
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_1:
                 visual_mode = 1
@@ -37,7 +43,7 @@ while running:
             elif event.key == pygame.K_3:
                 visual_mode = 3
 
-    # === Draw Selected Visual ===
+    # Render selected visual based on mode
     if visual_mode == 1:
         angle = draw_cube_visual(screen, energy, angle)
     elif visual_mode == 2:
@@ -45,12 +51,13 @@ while running:
     elif visual_mode == 3:
         angle = draw_dots_visual(screen, energy, angle)
 
-    pygame.display.flip()
-    clock.tick(FPS)
+    pygame.display.flip()   # Update the screen
+    clock.tick(FPS)         # Maintain consistent frame rate
 
-# === Cleanup ===
+# Stop audio and quit Pygame
 audio.stop()
 pygame.quit()
 sys.exit()
+
 
 

@@ -30,7 +30,7 @@ def draw_cube_visual(screen, energy, angle):
     cube = create_cube_surface(base_size, color)
     rotated_cube = pygame.transform.rotate(cube, angle)
 
-    offset = 200
+    offset = 250
     positions = [
         (center_x, center_y - offset),
         (center_x, center_y + offset),
