@@ -8,9 +8,9 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 def build_login_frame(frame, show_frame, frames):
     # Load image files
-    side_img = CTkImage(dark_image=Image.open("hologram.jpg"), size=(300, 480))
-    email_icon = CTkImage(dark_image=Image.open("email-icon.png"), size=(20, 20))
-    password_icon = CTkImage(dark_image=Image.open("password-icon.png"), size=(17, 17))
+    side_img = CTkImage(dark_image=Image.open("images/hologram.jpg"), size=(300, 480))
+    email_icon = CTkImage(dark_image=Image.open("images/email-icon.png"), size=(20, 20))
+    password_icon = CTkImage(dark_image=Image.open("images/password-icon.png"), size=(17, 17))
 
     # Left-side image
     CTkLabel(master=frame, text="", image=side_img).pack(expand=True, side="left")
@@ -33,5 +33,5 @@ def build_login_frame(frame, show_frame, frames):
     CTkEntry(master=form, width=225, fg_color="#EEEEEE", border_color="#601E88", border_width=1, text_color="#000000", show="*").pack(anchor="w", padx=(25, 0))
 
     # Buttons
-    CTkButton(master=form, text="Login", fg_color="#601E88", hover_color="#E44982", font=("Arial Bold", 12), text_color="#ffffff", width=225).pack(anchor="w", pady=(40, 0), padx=(25, 0))
+    CTkButton(master=form, text="Login", command=lambda: show_frame(frames["homepage"]), fg_color="#601E88", hover_color="#E44982", font=("Arial Bold", 12), text_color="#ffffff", width=225).pack(anchor="w", pady=(40, 0), padx=(25, 0))
     CTkButton(master=form, text="Sign Up", command=lambda: show_frame(frames["signup"]), fg_color="#EEEEEE", hover_color="#D3D3D3", font=("Arial Bold", 12), text_color="#601E88", width=225).pack(anchor="w", pady=(20, 0), padx=(25, 0))

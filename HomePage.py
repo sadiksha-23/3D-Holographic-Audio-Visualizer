@@ -37,17 +37,17 @@ def build_homepage_frame(frame, show_frame, frames):
     sidebar_frame.pack_propagate(0)
     sidebar_frame.pack(fill="y", anchor="w", side="left")
 
-    logo_img = CTkImage(Image.open("logo_icon.png"), size=(90, 90))
+    logo_img = CTkImage(Image.open("images/logo_icon.png"), size=(90, 90))
     CTkLabel(master=sidebar_frame, image=logo_img, text="").pack(pady=(30, 0))
     CTkLabel(master=sidebar_frame, text="3D HOLOGRAPHIC\nAUDIO VISUALIZER", font=("Segoe UI", 12, "bold"),
              text_color="white", justify="center").pack(pady=(10, 20))
 
-    CTkButton(master=sidebar_frame, image=CTkImage(Image.open("visualizer_icon.png"), size=(20, 20)),
+    CTkButton(master=sidebar_frame, image=CTkImage(Image.open("images/visualizer_icon.png"), size=(20, 20)),
               text="Visualizer", fg_color="transparent", font=("Segoe UI", 14),
               hover_color="#D9A8E3", anchor="w", compound="left",
               command=lambda: show_frame(frames["homepage"])).pack(anchor="center", ipady=5, pady=(10, 0))
 
-    CTkButton(master=sidebar_frame, image=CTkImage(Image.open("settings_icon.png"), size=(20, 20)),
+    CTkButton(master=sidebar_frame, image=CTkImage(Image.open("images/settings_icon.png"), size=(20, 20)),
               text="Settings", fg_color="transparent", font=("Segoe UI", 14),
               hover_color="#D9A8E3", anchor="w", compound="left",
               command=lambda: show_frame(frames["settingpage"])).pack(anchor="center", ipady=5, pady=(16, 0))
@@ -64,7 +64,7 @@ def build_homepage_frame(frame, show_frame, frames):
 
     profile_frame = CTkFrame(master=title_frame, fg_color="transparent")
     profile_frame.pack(anchor="ne", side="right")
-    CTkLabel(master=profile_frame, image=CTkImage(Image.open("person_icon.png"), size=(24, 24)), text="").pack(side="left", padx=(0, 5))
+    CTkLabel(master=profile_frame, image=CTkImage(Image.open("images/person_icon.png"), size=(24, 24)), text="").pack(side="left", padx=(0, 5))
     CTkLabel(master=profile_frame, text="name", font=("Segoe UI", 14), text_color="#E5BEEC").pack(side="left")
 
     # Metric Cards

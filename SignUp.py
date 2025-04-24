@@ -8,9 +8,9 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 def build_signup_frame(frame, show_frame, frames):
     # Load image files
-    side_img = CTkImage(dark_image=Image.open("hologram.jpg"), size=(300, 480))
-    email_icon = CTkImage(dark_image=Image.open("email-icon.png"), size=(20, 20))
-    password_icon = CTkImage(dark_image=Image.open("password-icon.png"), size=(17, 17))
+    side_img = CTkImage(dark_image=Image.open("images/hologram.jpg"), size=(300, 480))
+    email_icon = CTkImage(dark_image=Image.open("images/email-icon.png"), size=(20, 20))
+    password_icon = CTkImage(dark_image=Image.open("images/password-icon.png"), size=(17, 17))
 
     # Display left-side image
     CTkLabel(master=frame, text="", image=side_img).pack(expand=True, side="left")

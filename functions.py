@@ -2,7 +2,7 @@ app_settings = {
     "selected_color": "#FF0000",
     "selected_color_name": "Red",
     "current_mode": "Cube",
-    "preview_image_path": "cube.png",
+    "preview_image_path": "images/cube.png",
     "animation_speed": 1.0,
     "energy_threshold": 0.5,
     "hue_angle": 180,
@@ -38,7 +38,7 @@ def update_color(color):
 
 def update_mode(mode):
     app_settings["shape_mode"] = mode
-    app_settings["preview_image_path"] = f"{mode.lower()}.png"
+    app_settings["preview_image_path"] = f"images/{mode.lower()}.png"
     print(f"[Mode Updated] -> {mode}, Image: {app_settings['preview_image_path']}")
 
 def apply_fullscreen(app):
@@ -50,7 +50,7 @@ def reset_settings():
         "selected_color": "#FF0000",
         "selected_color_name": "Red",
         "current_mode": "Cube",
-        "preview_image_path": "cube.png",
+        "preview_image_path": "images/cube.png",
         "animation_speed": 1.0,
         "energy_threshold": 0.5,
         "hue_angle": 180,
