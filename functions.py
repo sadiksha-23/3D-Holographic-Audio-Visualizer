@@ -30,20 +30,18 @@ shape_map = {
 
 # Color HEX to readable name mapping
 color_names = {
-    "#FF0000": "Red",
-    "#FF7F00": "Orange",
-    "#FFFF00": "Yellow",
-    "#00FF00": "Green",
-    "#0000FF": "Blue",
-    "#4B0082": "Indigo",
-    "#8B00FF": "Violet",
-    "#FFFFFF": "White",
-    "#808080": "Gray",
-    "#FFC0CB": "Pink",
-    "#00FFFF": "Cyan",
-    "#FFD700": "Gold",
-    "#800000": "Maroon",
-    "#008080": "Teal"
+    "#FF0000": "Red",          
+    "#FF7F00": "Orange",       
+    "#FFFF00": "Yellow",       
+    "#00FF00": "Neon Green",   
+    "#0000FF": "Electric Blue",
+    "#FF00FF": "Magenta",      
+    "#00FFFF": "Cyan",         
+    "#40E0D0": "Turquoise",   
+    "#FFA500": "Bright Orange",
+    "#00FF7F": "Spring Green", 
+    "#8A2BE2": "Blue Violet",  
+    "#FF1493": "Deep Pink",    
 }
 
 # Save new color to memory and file
@@ -153,4 +151,7 @@ def save_runtime_settings():
         f.write(f"{app_settings['energy_threshold']}\n")
         f.write(f"{app_settings['color_mode']}\n")
         f.write(f"{app_settings['detail_level']}\n")
+
+
+
 

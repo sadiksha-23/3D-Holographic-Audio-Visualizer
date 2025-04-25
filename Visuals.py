@@ -27,12 +27,18 @@ def draw_cube_visual(screen, energy, angle, color, animation_speed, color_mode, 
     # Size and rotation speed based on detail level
     if detail_level == "Low":
         base_size = int(60 + boosted * 80)
+        breath_scale = 1.0 + 0.05 * math.sin(math.radians(angle * 2))
+        base_size = int(base_size * breath_scale)
         angle_step = 1.5
     elif detail_level == "High":
         base_size = int(100 + boosted * 140)
+        breath_scale = 1.0 + 0.05 * math.sin(math.radians(angle * 2))
+        base_size = int(base_size * breath_scale)
         angle_step = 2.5
     else:
         base_size = int(80 + boosted * 120)
+        breath_scale = 1.0 + 0.05 * math.sin(math.radians(angle * 2))
+        base_size = int(base_size * breath_scale)
         angle_step = 2.0
 
     # Apply pulsing color if enabled
@@ -50,6 +56,7 @@ def draw_cube_visual(screen, energy, angle, color, animation_speed, color_mode, 
         (center_x - offset, center_y),
         (center_x + offset, center_y)
     ]
+
     for pos in positions:
         screen.blit(rotated_cube, rotated_cube.get_rect(center=pos))
 
@@ -83,8 +90,12 @@ def draw_sphere_visual(screen, energy, angle, color, animation_speed, color_mode
         (center_x - spacing, center_y),
         (center_x + spacing, center_y)
     ]
+
+    breath_scale = 1.0 + 0.05 * math.sin(math.radians(angle * 2))  # add breathing
+    scaled_radius = int(radius * breath_scale)
+
     for pos in positions:
-        pygame.draw.circle(screen, color, pos, radius)
+        pygame.draw.circle(screen, color, pos, scaled_radius)
 
     return angle + 1.5 * animation_speed
 
@@ -93,6 +104,10 @@ def draw_sphere_visual(screen, energy, angle, color, animation_speed, color_mode
 def draw_dots_visual(screen, energy, angle, color, animation_speed, color_mode, detail_level, energy_threshold):
     WIDTH, HEIGHT = screen.get_size()
     center_x, center_y = WIDTH // 2, HEIGHT // 2
+
+    fade_surface = pygame.Surface(screen.get_size(), pygame.SRCALPHA)
+    fade_surface.fill((0, 0, 0, 20))  # light black transparent fade
+    screen.blit(fade_surface, (0, 0))
 
     boosted = 0 if energy < energy_threshold else min(energy * 10, 1.0)
 
