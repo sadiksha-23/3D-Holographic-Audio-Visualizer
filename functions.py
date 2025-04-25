@@ -91,12 +91,16 @@ def authenticate_user(email, password):
     try:
         with open(os.path.join(BASE_DIR, "users.txt"), "r") as file:
             for line in file:
-                saved_email, saved_password = line.strip().split(",")
+                parts = line.strip().split(",")
+                if len(parts) != 2:
+                    continue  # skip malformed lines
+                saved_email, saved_password = parts
                 if saved_email == email and saved_password == password:
                     return True
     except FileNotFoundError:
         return False
     return False
+
 
 # Convert HEX color code to RGB tuple
 def hex_to_rgb(hex_color):
