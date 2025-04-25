@@ -1,5 +1,5 @@
 from AudioInput import *  # Custom audio input class to capture live audio energy
-from Cube_Visual import draw_cube_visual, draw_sphere_visual, draw_dots_visual  # Shape drawing functions
+from Visuals import draw_cube_visual, draw_sphere_visual, draw_dots_visual  # Shape drawing functions
 from functions import *  # Shared utilities and app_settings
 import pygame
 import os
