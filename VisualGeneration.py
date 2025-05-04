@@ -15,7 +15,7 @@ with open("color.txt", "w") as f:
     f.write("#FF0000")
 
 # Screen dimensions and frame rate
-WIDTH, HEIGHT = 1000, 800
+WIDTH, HEIGHT = 900, 800
 FPS = 60
 
 # Initialize Pygame environment

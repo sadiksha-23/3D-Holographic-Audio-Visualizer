@@ -15,11 +15,6 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 audio_input = AudioInput()
 audio_input.start()
 
-# Tkinter variables to reflect current shape mode and color selections in the UI
-current_mode_var = StringVar(value=app_settings["shape_mode"])
-selected_color = StringVar(value=app_settings["selected_color"])
-selected_color_name = StringVar(value=app_settings["selected_color_name"])
-
 # History list to store recent energy values for plotting
 energy_history = []
 max_points = 100  # Number of points to display on the energy graph
@@ -45,6 +40,13 @@ def update_preview_image(mode):
 
 # Main function to build the homepage GUI
 def build_homepage_frame(frame, show_frame, frames):
+    global current_mode_var, selected_color, selected_color_name
+    
+    # Tkinter variables to reflect current shape mode and color selections in the UI
+    current_mode_var = StringVar(value=app_settings["shape_mode"])
+    selected_color = StringVar(value=app_settings["selected_color"])
+    selected_color_name = StringVar(value=app_settings["selected_color_name"])
+
     # Sidebar containing navigation buttons
     sidebar_frame = CTkFrame(master=frame, fg_color="#2A2F4F", width=176, corner_radius=0)
     sidebar_frame.pack_propagate(0)
