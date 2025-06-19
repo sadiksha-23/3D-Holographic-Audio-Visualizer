@@ -136,6 +136,7 @@ def build_settings_frame(frame, show_frame, frames):
     reset_btn = CTkButton(master=settings_content, text="Reset to Default", command=lambda: full_reset(), width=180, height=35, font=("Segoe UI", 14, "bold"), fg_color="#2A2F4F", hover_color="#E5BEEC")
     reset_btn.grid(row=3, column=0, sticky="w", padx=10, pady=(0, 15))
 
+    # updating everything to its default state
     def full_reset():
         reset_settings()
         save_runtime_settings()
