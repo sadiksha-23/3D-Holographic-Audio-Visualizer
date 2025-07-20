@@ -12,10 +12,12 @@ First, clone this repository to your local machine using git:
 git clone https://github.com/sadiksha-23/3D-Holographic-Audio-Visualizer
 
 3. Install Dependencies
+   
 This project uses several Python libraries. Run the following command in your terminal to install them all at once:
 pip install pygame sounddevice numpy customtkinter 
 
 4. Run the Application (Two-Window Setup)
+   
 This project is designed to run in two separate windows simultaneously on the same device: one for the control dashboard and one for the visualizer.
 
    Step A: Start the Visualizer
